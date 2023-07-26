@@ -2,6 +2,7 @@ package com.claudio.credit.application.system.entity
 
 import jakarta.persistence.*
 import jdk.jfr.Enabled
+import java.math.BigDecimal
 
 @Entity
 data class Customer(
@@ -16,6 +17,9 @@ data class Customer(
 
     @Column(nullable = false, unique = true)
     var email: String = "",
+
+    @Column(nullable = false)
+    val income: BigDecimal = BigDecimal.ZERO,
 
     @Column(nullable = false)
     var password: String = "",
