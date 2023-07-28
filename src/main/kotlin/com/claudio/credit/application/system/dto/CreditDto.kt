@@ -2,13 +2,21 @@ package com.claudio.credit.application.system.dto
 
 import com.claudio.credit.application.system.entity.Credit
 import com.claudio.credit.application.system.entity.Customer
+import jakarta.validation.constraints.Future
+import jakarta.validation.constraints.NotNull
 import java.math.BigDecimal
 import java.time.LocalDate
 
 data class CreditDto(
+    @field:NotNull(message = "Invalid input")
     val creditValue: BigDecimal,
+
+    @field:Future
     val dayFirstOfInstallment: LocalDate,
+
     val numberOfInstallments: Int,
+
+    @field:NotNull(message = "Invalid input")
     val customerId: Long
 ) {
     fun toEntity(): Credit = Credit(
