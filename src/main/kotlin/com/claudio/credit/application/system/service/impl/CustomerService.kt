@@ -20,6 +20,7 @@ class CustomerService(private val customerRepository: CustomerRepository): ICust
     }
 
     override fun delete(id: Long) {
-        this.customerRepository.deleteById(id)
+        val customer: Customer = this.findById(id)
+        this.customerRepository.delete(customer)
     }
 }
